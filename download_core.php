@@ -3,52 +3,57 @@
  * @package wp-travel-downloads-custom
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+if (! defined('ABSPATH')) {
+	exit;
 }
 
-// Ensure the parent class is loaded
-if ( class_exists( 'WP_Travel_Downloads_Core' ) ) {
 
-    // Remove the original callback
-    remove_action( 'init', array( 'WP_Travel_Downloads_Core', 'wp_travel_itinerary_downloads_callback' ), 20 );
+// Remove the original callback
+remove_action('init', array('WP_Travel_Downloads_Core', 'wp_travel_itinerary_downloads_callback'), 20);
 
-    // Add your custom callback
-    add_action( 'init', 'custom_wp_travel_itinerary_downloads_callback', 20 );
+// Add your custom callback
+add_action('init', 'custom_wp_travel_itinerary_downloads_callback', 20);
 
-    function custom_wp_travel_itinerary_downloads_callback() {
-        // Check nonce for security
-        if ( ! WP_Travel::verify_nonce( true ) ) {
-            return;
-        }
+function custom_wp_travel_itinerary_downloads_callback()
+{
+	// Check nonce for security
+	if (! WP_Travel::verify_nonce(true)) {
+		return;
+	}
 
-        // Check if the download itinerary request is set
-        if ( ! isset( $_REQUEST['download_itinerary'] ) || ! isset( $_REQUEST['trip_id'] ) ) {
-            return;
-        }
+	// Check if the download itinerary request is set
+	if (! isset($_REQUEST['download_itinerary']) || ! isset($_REQUEST['trip_id'])) {
+		return;
+	}
 
-        // Your custom logic before generating the PDF
-        $trip_id = $_REQUEST['trip_id'];
-        
-        // Call the overridden generate_pdf method or any custom logic
-        Custom_WP_Travel_Downloads::generate_pdf( $trip_id ); // Use your custom class here
+	// Your custom logic before generating the PDF
+	$trip_id = $_REQUEST['trip_id'];
 
-        // Optionally, add more logic here if needed
-    }
+	if (class_exists('WP_Travel_Downloads_Core')) {
+		// Call the overridden generate_pdf method or any custom logic
+		Custom_WP_Travel_Downloads::generate_pdf($trip_id); // Use your custom class here
+	}
 
-    // Create your custom class extending WP_Travel_Downloads_Core
-    class Custom_WP_Travel_Downloads extends WP_Travel_Downloads_Core {
-        public static function wp_travel_itinerary_download_template( $trip_id, $template = 'default' ) {
-			  include_once self::$ABSPATH . 'inc/templates/pdf/default.php';
+	// Optionally, add more logic here if needed
+}
+
+if (class_exists('WP_Travel_Downloads_Core')) {
+	// Create your custom class extending WP_Travel_Downloads_Core
+	class Custom_WP_Travel_Downloads extends WP_Travel_Downloads_Core
+	{
+		public static function wp_travel_itinerary_download_template($trip_id, $template = 'default')
+		{
+			include_once self::$ABSPATH . 'inc/templates/pdf/default.php';
 		}
 
-        // Override the generate_pdf method here as before
-        public static function generate_pdf( $trip_id, $download_pdf = true ) {
+		// Override the generate_pdf method here as before
+		public static function generate_pdf($trip_id, $download_pdf = true)
+		{
 			// $trip_id = $_REQUEST['trip_id'];
-			$defaultConfig = ( new Mpdf\Config\ConfigVariables() )->getDefaults();
+			$defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
 			$font_dirs     = $defaultConfig['fontDir'];
 
-			$defaultFontConfig = ( new Mpdf\Config\FontVariables() )->getDefaults();
+			$defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
 			$fontData          = $defaultFontConfig['fontdata'];
 
 			$mpdf = new \Mpdf\Mpdf(
@@ -75,7 +80,7 @@ if ( class_exists( 'WP_Travel_Downloads_Core' ) ) {
 				)
 			);
 			ob_start();
-			self::wp_travel_itinerary_download_template( $trip_id );
+			self::wp_travel_itinerary_download_template($trip_id);
 			$html = ob_get_contents();
 			ob_end_clean();
 			// echo $html;die;
@@ -85,26 +90,26 @@ if ( class_exists( 'WP_Travel_Downloads_Core' ) ) {
 			 * fixed download using chinies lan
 			 */
 			$site_languages = get_locale();
-			if ( $site_languages == 'zh_CN' || $site_languages == 'zh_TW' || $site_languages == 'ja' || $site_languages == 'zh_HK' ) {
+			if ($site_languages == 'zh_CN' || $site_languages == 'zh_TW' || $site_languages == 'ja' || $site_languages == 'zh_HK') {
 				$mpdf->useAdobeCJK      = true;
 				$mpdf->autoLangToFont   = true;
 				$mpdf->autoScriptToLang = true;
 			}
-			$mpdf->WriteHTML( $html );
-			$dir = trailingslashit( WP_TRAVEL_ITINERARY_PATH );
+			$mpdf->WriteHTML($html);
+			$dir = trailingslashit(WP_TRAVEL_ITINERARY_PATH);
 
-			$trips_name            = get_the_title( $trip_id );
+			$trips_name            = get_the_title($trip_id);
 			$downloadable_filename = $trips_name . '.pdf';
-			if ( ! $download_pdf ) {
-				$mpdf->Output( $dir . $downloadable_filename, 'F' ); // Store it in file.
+			if (! $download_pdf) {
+				$mpdf->Output($dir . $downloadable_filename, 'F'); // Store it in file.
 			} else {
-				$mpdf->Output( $trips_name . '.pdf', 'D' ); // download pdf.
+				$mpdf->Output($trips_name . '.pdf', 'D'); // download pdf.
 			}
 		}
-    }
+	}
 
-    // Initialize your custom class
-    add_action( 'init', function() {
-        Custom_WP_Travel_Downloads::instance();
-    });
+	// Initialize your custom class
+	add_action('init', function () {
+		Custom_WP_Travel_Downloads::instance();
+	});
 }

@@ -461,7 +461,7 @@ if ( '' === $image_url ) {
 								<div class="itinerary-content">
 									<h5><?php echo esc_html( $itinerary['title'] ); ?></h5>
 									<?php echo '<br>'; ?>
-									<p><?php echo esc_html( $itinerary['desc'] ); ?></p>
+									<p><?php echo ( $itinerary['desc'] ); ?></p>
 									<?php echo '<br><br>'; ?>
 								</div>
 								</div>
