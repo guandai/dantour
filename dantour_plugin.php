@@ -8,10 +8,14 @@ Author: twindai
 Author URI: http://twindai.com
 */
 
+
+
 // Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+
+require_once 'download_core.php';
 
 // Add meta box to the trip edit screen
 add_action('add_meta_boxes', 'wptp_add_custom_meta_box');
