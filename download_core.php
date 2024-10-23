@@ -13,7 +13,7 @@ if (! defined('ABSPATH')) {
 
 // Add your custom callback
 add_action('init', 'custom_wp_travel_itinerary_downloads_callback', 20);
-remove_action('init', 'wp_travel_itinerary_downloads_callback', 10);
+//remove_action('init', 'wp_travel_itinerary_downloads_callback', 10);
 
 function custom_wp_travel_itinerary_downloads_callback()
 {

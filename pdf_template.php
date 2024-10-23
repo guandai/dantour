@@ -462,7 +462,7 @@ if ( '' === $image_url ) {
 								<div class="itinerary-content">
 									<h5><?php echo esc_html( $itinerary['title'] ); ?></h5>
 									<?php echo '<br>'; ?>
-									<p><?php echo esc_html( $itinerary['desc'] ); ?></p>
+									<p><?php echo( $itinerary['desc'] ); ?></p>
 									<?php echo '<br><br>'; ?>
 								</div>
 								</div>
@@ -493,7 +493,7 @@ if ( '' === $image_url ) {
 					<p><?php echo wp_kses_post( preg_replace('/\[wp_travel_trip_weather_forecast(.*)\]/i', '', $trip_data['trip']['trip_include']) ); ?></p>
 
 					<h5 class="exclude-title"><?php esc_html_e( 'Trip Exclude : ', 'wp-travel-pro' ); ?></h5>
-					<p> <?php echo( preg_replace('/\[wp_travel_trip_weather_forecast(.*)\]/i', '', $trip_data['trip']['trip_exclude']) ); ?> </p>
+					<p> <?php echo wp_kses_post( preg_replace('/\[wp_travel_trip_weather_forecast(.*)\]/i', '', $trip_data['trip']['trip_exclude']) ); ?> </p>
 					<?php
 				}
 				?>
