@@ -1,0 +1,72 @@
+.wp-travel-downloads-listings-public {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-gap: 30px;
+    margin-bottom: 30px;
+}
+.wp-travel-downloads-listings-public p{
+    display: none;
+}
+.wp-travel-downloads-listings-public .wp_travel_downloads_tab_title_caption span{
+    display: block;
+}
+
+/*.wp-travel-downloads-listings-public .wp_travel_downloads_tab_title_caption a{
+    font-size: large;
+    font-weight: bold;
+}
+
+.wp-travel-downloads-listings-public .fas{
+    border: 2px solid #d0d0d0;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+}
+*/
+.wp-travel-tab-wrapper .tab-list.resp-tabs-list li{
+    padding: 22px 30px;
+}
+
+@media screen and (max-width: 765px) {
+    .wp-travel-downloads-listings-public {
+        grid-template-columns: 1fr;
+    }
+}
+
+#send-email .send_email_checkbox{
+    padding: .5em 1em;
+    background-color: #dad9d9;
+    display: flex;
+    align-items: center;
+    grid-gap: 7px;
+}
+
+#user-email-address{
+    padding: 1em;
+    background-color: #eee;
+}
+
+#user-email-address input#email-id {
+    padding-left: 15px !important;
+}
+#user-email-address form#ajax-email-form {
+    padding: 0;
+    background: none;
+    display: flex;
+    position: relative;
+    grid-gap: 2px;
+}
+#user-email-address span#blank_email, #user-email-address #invalid_email {
+    position: absolute;
+    left: 0;
+    top: 100%;
+}
+#user-email-address button.btn-submit {
+    height: 40px;
+}
+div#send-email {
+    margin-top: 2em;
+}

@@ -1,0 +1,274 @@
+
+.content{
+    /* margin-top: 20px; */
+    /* max-width: 50%; */
+}
+
+input.downloads-email-tag {
+    background: #69c8a7;
+    color: rgb(43, 43, 43);
+}
+
+input.downloads-email-tag:hover {
+    cursor: text;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.post-type-wp_travel_downloads #edit-slug-box {
+    display: none;
+}
+
+#wp-travel-tab-content-downloads div#wp-travel-downloads-email-downloadable-attachments {
+    margin-top: 60px;
+}
+#wp-travel-tab-content-downloads .select2-container {
+    max-width: unset !important;
+    width: 100% !important;
+}
+
+#addMore{
+    margin: 0 0 10px 0;
+    padding: 10px;
+    border: none;
+    float: right;
+    display: none;
+}
+
+#wpt_downloads_caption{
+    width: 100%;
+    height: 180px;
+    resize: both;
+}
+
+/* removed since wp-travel v2.0.0 */
+/* css to add downloads icon in trips meta */
+/* .wp-travel-tabs-wrap .wp-travel-tabs-nav li#wp-travel-tab-downloads a:before {
+    font-family: Dashicons;
+    content: "\f316";
+    font-size: 18px;
+    line-height: 20px;
+} */
+
+.select2-container-multi .select2-choices .select2-search-field input{
+    padding: 5px;
+    width: 100%;
+    margin: 1px 0;
+    font-family: sans-serif;
+    font-size: 100%;
+    color: #666;
+    outline: 0;
+    border: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: transparent !important;
+}
+
+.element-wrapper {
+    background-color: #fff;
+    /* border: 1px solid #eee; */
+    margin-bottom: 20px;
+    padding: 20px 30px 20px 30px;
+    position: relative;
+    /* box-shadow: 5px 5px 15px #dfdfdf; */
+}
+
+.element-wrapper .drag {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px;
+    cursor: pointer;
+}
+
+.element-wrapper-grid {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.element-wrapper-grid-item:first-of-type {
+    position: relative;
+    width: 26%;
+}
+
+.element-wrapper-grid-item:last-of-type {
+    width: 70%;
+}
+
+.element-wrapper-grid-item img {
+    background-color: #eee;
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid #ccc;
+    padding: 2px;
+}
+
+.element-wrapper-grid-item > label {
+    display: flex;
+}
+
+.element-wrapper-grid-item > label:first-of-type {
+    /* margin-bottom: 15px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.element-wrapper-grid-item > label > span {
+    display: inline-block;
+    font-weight: 500;
+    /* min-width: 75px; */
+    margin-bottom: 6px;
+}
+
+.element-wrapper-grid-item > label > input {
+    width: 100%;
+    border: 1px solid #c0c0c0;
+    box-shadow: none;
+    text-align: left;
+}
+
+.element-wrapper .remove {
+    color: #fff;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    height: 25px;
+    width: 25px;
+    background-color: #555;
+    border-radius: 50%;
+    line-height: 0;
+    font-size: 12px;
+}
+
+.element-wrapper .remove:hover {
+    background-color: #d52827;
+}
+
+.element-wrapper button {
+    background-color: transparent;
+    border: 0;
+}
+
+.element-wrapper .upload_image_button {
+    position: absolute;
+    top: 1px;
+    background-color: #fff;
+    left: 2px;
+    padding: 3px 8px 4px;
+    z-index: 1;
+}
+
+.element-wrapper .upload_image_button:hover {
+    background-color: #008ec2;
+    color: #fff;
+}
+
+.element-wrapper .remove_image_button {
+    display: none;
+}
+
+/* #submit{
+    margin: 10px 0 0 0;
+    padding: 10px;
+    border: none;
+    display: none;
+} */
+
+/* #remove{
+    margin: 0 0 0 6px;
+    height: 25px;
+    width: 25px;
+    border: none;
+} */
+
+.title{
+    width: 100px;
+}
+
+.description{
+    margin-left: 5px;
+}
+
+.fa-arrows{
+    margin-left: 5px;
+}
+
+p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#wp-travel-tab-content-downloads > .select2-container{
+    display: block !important;
+    width: 100% !important;
+}
+#wp-travel-tab-content-downloads > .select2-container--default .select2-selection--multiple {
+    cursor: pointer !important;
+    border: 1.1px solid #69C8A7 !important;
+    padding: 2px 8px;
+    /* background: #69C8A7 !important; */
+    display: block;
+    width: 100%;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: #E9F9F3 !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #CBE8DE !important;
+    color: white !important;
+}
+
+#wp-travel-tab-content-downloads > .select2-container .select2-selection--multiple .select2-selection__rendered{
+    display: block !important;
+}
+#wp-travel-tab-content-downloads > .select2-container--default .select2-selection--multiple .select2-selection__rendered li{
+    background-color: #cae8de;
+    border: 0 !important;
+    padding: 3px 7px;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: #545454;
+}
+#wp-travel-tab-content-downloads > .select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+    color: #de2f2f !important;
+    margin-right: 6px !important;
+}
+#wp-travel-tab-content-downloads > .select2-container--open .select2-dropdown--below{
+    display: block !important;
+    background: #e5e5e5 !important;
+}
+#wp-travel-tab-content-downloads > .select2-results__option{
+    margin: 0 !important;
+    padding: 12px !important;
+}
+.select2-selection__rendered > li.select2-search.select2-search--inline{
+    background: none !important;
+}
+.select2-selection__rendered > li.select2-search.select2-search--inline > input.select2-search__field{
+    width: 250px !important;
+    border-left: none;
+}
+
+@media only screen and (min-width: 600px) and (max-width:2000px){
+    .element-wrapper{
+        padding: 20px !important;
+    }
+    .element-wrapper-grid {
+        justify-content: space-between !important;
+    }
+    .element-wrapper-grid-item:first-of-type{
+        width: auto !important;
+        flex: 1 !important;
+        margin-right: 25px !important;
+    }
+    .element-wrapper-grid-item:last-of-type{
+        width: auto !important;
+        flex: 2 !important;
+    }
+}

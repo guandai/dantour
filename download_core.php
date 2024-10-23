@@ -9,7 +9,7 @@ if (! defined('ABSPATH')) {
 
 
 // Remove the original callback
-remove_action('init', array('WP_Travel_Downloads_Core', 'wp_travel_itinerary_downloads_callback'), 20);
+// remove_action('init', array('WP_Travel_Downloads_Core', 'wp_travel_itinerary_downloads_callback'), 20);
 
 // Add your custom callback
 add_action('init', 'custom_wp_travel_itinerary_downloads_callback', 20);
@@ -17,12 +17,14 @@ add_action('init', 'custom_wp_travel_itinerary_downloads_callback', 20);
 function custom_wp_travel_itinerary_downloads_callback()
 {
 	if (class_exists('WP_Travel_Downloads_Core')) {
+		remove_action('init', array('WP_Travel_Downloads_Core', 'wp_travel_itinerary_downloads_callback'), 20);
 		// Create your custom class extending WP_Travel_Downloads_Core
 		class Custom_WP_Travel_Downloads extends WP_Travel_Downloads_Core
 		{
-			public static function wp_travel_itinerary_download_template($trip_id, $template = 'default')
+			public static function custom_wp_travel_itinerary_download_template($trip_id, $template = 'default')
 			{
-				include_once self::$ABSPATH . 'inc/templates/pdf/default.php';
+				error_log(__DIR__ . '/pdf_template.php');
+				include __DIR__ . '/pdf_template.php';
 			}
 	
 			// Override the generate_pdf method here as before
@@ -34,7 +36,7 @@ function custom_wp_travel_itinerary_downloads_callback()
 	
 				$defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
 				$fontData          = $defaultFontConfig['fontdata'];
-	
+
 				$mpdf = new \Mpdf\Mpdf(
 					array(
 						'margin_top'    => 0,
@@ -59,8 +61,12 @@ function custom_wp_travel_itinerary_downloads_callback()
 					)
 				);
 				ob_start();
-				self::wp_travel_itinerary_download_template($trip_id);
+				self::custom_wp_travel_itinerary_download_template($trip_id);
 				$html = ob_get_contents();
+
+				error_log('>>>>generate_pdf html');
+				echo ($html);
+
 				ob_end_clean();
 				// echo $html;die;
 				$mpdf->AddPage();
