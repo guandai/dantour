@@ -13,14 +13,14 @@ if (! defined('ABSPATH')) {
 
 // Add your custom callback
 add_action('init', 'custom_wp_travel_itinerary_downloads_callback', 20);
+remove_action('init', 'wp_travel_itinerary_downloads_callback', 10);
 
 function custom_wp_travel_itinerary_downloads_callback()
 {
 	if (class_exists('WP_Travel_Downloads_Core')) {
-		remove_action('init', array('WP_Travel_Downloads_Core', 'wp_travel_itinerary_downloads_callback'), 20);
+		remove_action('init', 'wp_travel_itinerary_downloads_callback', 10);
 		// Create your custom class extending WP_Travel_Downloads_Core
-		class Custom_WP_Travel_Downloads extends WP_Travel_Downloads_Core
-		{
+		class Custom_WP_Travel_Downloads extends WP_Travel_Downloads_Core {
 			public static function custom_wp_travel_itinerary_download_template($trip_id, $template = 'default')
 			{
 				error_log(__DIR__ . '/pdf_template.php');
@@ -94,9 +94,7 @@ function custom_wp_travel_itinerary_downloads_callback()
 		}
 	
 		// Initialize your custom class
-		add_action('init', function () {
-			Custom_WP_Travel_Downloads::instance();
-		});
+		add_action('init', function () { Custom_WP_Travel_Downloads::instance(); });
 	}
 	
 	
@@ -117,6 +115,5 @@ function custom_wp_travel_itinerary_downloads_callback()
 	// Call the overridden generate_pdf method or any custom logic
 	Custom_WP_Travel_Downloads::generate_pdf($trip_id); // Use your custom class here
 
-	// Optionally, add more logic here if needed
 }
 
