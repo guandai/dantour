@@ -312,10 +312,10 @@ if ( '' === $image_url ) {
 							?>
 							<table class="mini-table">
 								<tr>
-									<th><?php echo esc_html( '类别' ); ?></th>
-									<th><?php echo esc_html( '每人价格' ); ?></th>
-									<th><?php echo esc_html( '价格' ); ?></th>
-									<th><?php echo esc_html( '人员(最少/最大)' ); ?></th>
+									<th><?php echo esc_html( 'Category' ); ?></th>
+									<th><?php echo esc_html( 'Price Per' ); ?></th>
+									<th><?php echo esc_html( 'Price' ); ?></th>
+									<th><?php echo esc_html( 'Person(Min/Max)' ); ?></th>
 								</tr>
 								<?php
 								$i = 1;
