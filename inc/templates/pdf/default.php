@@ -279,7 +279,6 @@ if ( '' === $image_url ) {
 			<!-- table tag consists upto trip itineraries -->
 			<table class="trip-table">
 				<tr>
-					AAAAA TEST
 					<td><?php esc_html_e( 'Trip Title : ', 'wp-travel-pro' ); ?></td>
 					<td>
 						<?php echo esc_html( $trip_data['trip']['title'] ); ?>
@@ -289,6 +288,7 @@ if ( '' === $image_url ) {
 					<td><?php esc_html_e( 'Trip Code : ', 'wp-travel-pro' ); ?></td>
 					<td>
 						<div class="trip-code">
+						   AAAAA TEST
 							<?php
 							echo esc_html( $trip_data['trip']['trip_code'] );
 							?>
