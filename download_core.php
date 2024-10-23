@@ -21,13 +21,17 @@ function define_download_class() {
 			if ( ! WP_Travel::verify_nonce( true ) ) {
 				return;
 			}
-			if ( ! isset( $_REQUEST['download_itinerary'] ) ) {
-				return;
-			}
 			if ( ! isset( $_REQUEST['trip_id'] ) ) {
 				return;
 			}
-			self::generate_pdf($_REQUEST['trip_id']); // Use your custom class here
+
+			if ( isset( $_REQUEST['download_itinerary'] ) && isset( $_REQUEST['trip_id'] ) ) {
+        self::generate_pdf( $_REQUEST['trip_id'] );
+        exit;
+			} elseif ( isset( $_REQUEST['html_itinerary'] ) && isset( $_REQUEST['trip_id'] ) ) {
+				self::output_html( $_REQUEST['trip_id'] );
+				exit;
+			}
 		}
 
 		public static function wp_travel_itinerary_download_template($trip_id, $template = 'default')
@@ -35,6 +39,16 @@ function define_download_class() {
 			include __DIR__ . '/pdf_template.php';
 		}
 	
+		public static function output_html( $trip_id ) {
+			ob_start();
+			self::wp_travel_itinerary_download_template( $trip_id );
+			$html = ob_get_clean();
+
+			// Output the HTML content
+			echo $html;
+			exit; // Stop further execution
+		}
+
 		// Override the generate_pdf method here as before
 		public static function generate_pdf($trip_id, $download_pdf = true)
 		{

@@ -67,7 +67,11 @@ if ( '' === $image_url ) {
 		.trip-details .images {
 			margin-top: 25px;
 			margin-bottom: 25px;
-			text-align: center;		
+			text-align: center;
+			width: 100%;
+		}
+		.trip-details .images img {
+			width: 100%;
 		}
 		
 		h4 {
@@ -232,6 +236,7 @@ if ( '' === $image_url ) {
 			/* background: #555555; */
 			background: <?php echo esc_attr( $primary_color ); ?>;
 			padding: 25px 0;
+			width: 25%;
 
 		}
 		.mini-table tr:nth-child(even) {
@@ -312,10 +317,10 @@ if ( '' === $image_url ) {
 							?>
 							<table class="mini-table">
 								<tr>
-									<th><?php echo esc_html( 'Category' ); ?></th>
-									<th><?php echo esc_html( 'Price Per' ); ?></th>
-									<th><?php echo esc_html( 'Price' ); ?></th>
-									<th><?php echo esc_html( 'Person(Min/Max)' ); ?></th>
+									<th><?php echo esc_html( '分类' ); ?></th>
+									<th><?php echo esc_html( '价格每人' ); ?></th>
+									<th><?php echo esc_html( '价格' ); ?></th>
+									<th><?php echo esc_html( '人数(最少/最多)' ); ?></th>
 								</tr>
 								<?php
 								$i = 1;
