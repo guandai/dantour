@@ -9,12 +9,18 @@ if (! defined('ABSPATH')) {
 
 add_action( 'init', 'my_custom_plugin_remove_wp_travel_action2', 15 );
 function my_custom_plugin_remove_wp_travel_action2() {
+	  if ( ! class_exists( 'WP_Travel_Downloads_Core' ) ) {
+			return;
+		}
     remove_action( 'init', array( 'WP_Travel_Downloads_Core', 'wp_travel_itinerary_downloads_callback' ), 20 );
 		define_download_class();
 		Custom_WP_Travel_Downloads::wp_travel_itinerary_downloads_callback(0);
 }
 
 function define_download_class() {
+	if ( ! class_exists( 'WP_Travel_Downloads_Core' ) ) {
+		return;
+	}
 	class Custom_WP_Travel_Downloads extends WP_Travel_Downloads_Core {
 		public static function wp_travel_itinerary_downloads_callback($trip_id)
 		{
