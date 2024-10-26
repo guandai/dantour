@@ -10,7 +10,7 @@
  *
  * @param array $args Tab args.
  */
-if ( ! function_exists( 'wptravel_account_tab_content' ) ) {
+if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 	/**
 	 * Account tab content HTML.
 	 *
@@ -18,7 +18,7 @@ if ( ! function_exists( 'wptravel_account_tab_content' ) ) {
 	 *
 	 * @since 2.3.0
 	 */
-	function wptravel_account_tab_content( $args ) {
+	function custome_wptravel_account_tab_content( $args ) {
 		ob_start();
 
 		$bookings = $args['bookings'];
