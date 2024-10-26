@@ -489,7 +489,6 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 }
 
 
-
 add_action( 'wp_ajax_load_account_tab_content', 'handle_account_tab_content_ajax' );
 add_action( 'wp_ajax_nopriv_load_account_tab_content', 'handle_account_tab_content_ajax' );
 

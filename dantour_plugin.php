@@ -15,5 +15,5 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-require_once './download_core.php';
-require_once './booking_user.php';
+require_once 'download_core.php';
+require_once 'booking_user.php';
