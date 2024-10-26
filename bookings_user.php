@@ -497,7 +497,7 @@ function handle_account_tab_content_ajax() {
     $args = isset( $_POST['args'] ) ? json_decode( stripslashes( $_POST['args'] ), true ) : [];
 
     // Call the function and get the content
-    $content = wptravel_account_tab_content( $args );
+    $content = custome_wptravel_account_tab_content( $args );
 
     // Return the HTML content
     echo $content;
