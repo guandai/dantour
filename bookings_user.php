@@ -502,11 +502,10 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 				<?php endif; ?>
 			</div>
 			<?php
-			echo  "`}";
 		}
 
 		?></div><?php
-
+		echo  "`}";
 		return ob_get_clean();
 	}
 }
