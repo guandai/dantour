@@ -27,17 +27,6 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 		$detail_link  = home_url( $wp->request ) . '#bookings';
 		$back_link    = $detail_link;
 		$request_data = WP_Travel::get_sanitize_request();
-		?>
-		
-				<div class="um-account-nav uimob340-show uimob500-show">
-					<a href="javascript:void(0);" data-tab="delete" class="">
-						删除账号
-						<span class="ico"><i class="um-faicon-trash-o"></i></span>
-						<span class="arr"><i class="um-faicon-angle-down"></i></span>
-					</a>
-				</div>
-				<div class="um-account-tab um-account-tab-delete" data-tab="delete" style="display: none;">
-		<?php
 		
 		if ( $request_data ) { // @phpcs:ignore
 			wptravel_print_notices();
@@ -503,7 +492,6 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 			<?php
 		}
 
-		?></div><?php
 		return ob_get_clean();
 	}
 }
