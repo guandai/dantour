@@ -27,7 +27,6 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 		$detail_link  = home_url( $wp->request ) . '#bookings';
 		$back_link    = $detail_link;
 		$request_data = WP_Travel::get_sanitize_request();
-    echo  "{html:`";
 		?>
 		
 				<div class="um-account-nav uimob340-show uimob500-show">
@@ -505,7 +504,6 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 		}
 
 		?></div><?php
-		echo  "`}";
 		return ob_get_clean();
 	}
 }
