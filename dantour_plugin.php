@@ -16,3 +16,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once 'download_core.php';
+require_once 'booking_user.php';
