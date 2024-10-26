@@ -485,7 +485,6 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 
 		return ob_get_clean();
 	}
-	custome_wptravel_account_tab_content( $args );
 }
 
 
