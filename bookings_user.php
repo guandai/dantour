@@ -28,6 +28,17 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 		$back_link    = $detail_link;
 		$request_data = WP_Travel::get_sanitize_request();
 
+		?>
+				<div class="um-account-nav uimob340-show uimob500-show">
+					<a href="javascript:void(0);" data-tab="delete" class="">
+						删除账号
+						<span class="ico"><i class="um-faicon-trash-o"></i></span>
+						<span class="arr"><i class="um-faicon-angle-down"></i></span>
+					</a>
+				</div>
+				<div class="um-account-tab um-account-tab-delete" data-tab="delete" style="display: none;">
+		<?php
+		
 		if ( $request_data ) { // @phpcs:ignore
 			wptravel_print_notices();
 			$booking_id    = isset( $request_data['detail_id'] ) ? absint( $request_data['detail_id'] ) : 0;
@@ -58,7 +69,12 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 					<div class="view-order">
 						<div class="order-list">
 							<div class="order-wrapper">
-								<h3><?php esc_html_e( 'Your Booking Details', 'wp-travel' ); ?> <a href="<?php echo esc_url( $back_link ); ?>"><?php esc_html_e( '(Back)', 'wp-travel' ); ?></a></h3>
+								<h3 class="um-account-heading">
+									<?php esc_html_e( 'Your Booking Details', 'wp-travel' ); ?>
+									<a href="<?php echo esc_url( $back_link ); ?>">
+										<?php esc_html_e( '(Back)', 'wp-travel' ); ?>
+									</a>
+								</h3>
 								<?php wptravel_view_booking_details_table( $booking_id ); ?>
 							</div>
 							<?php echo WpTravel_Helpers_Payment::render_payment_details( $booking_id ); // @phpcs:ignore ?>
@@ -94,7 +110,9 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 								$the_query = new WP_Query( $query_args );
 
 								?>
-								<h3><?php esc_html_e( 'Your Bookings', 'wp-travel' ); ?> (<?php echo esc_html( $the_query->found_posts ); ?>)</h3>
+								<h3 class="um-account-heading">
+									<?php esc_html_e( 'Your Bookings', 'wp-travel' ); ?> (<?php echo esc_html( $the_query->found_posts ); ?>)
+								</h3>
 								<div class="table-wrp">
 									<?php
 									/**
@@ -306,7 +324,9 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 									$the_query = new WP_Query( $query_args );
 
 									?>
-									<h3><?php esc_html_e( 'Your Bookings', 'wp-travel' ); ?> (<?php echo esc_html( $the_query->found_posts ); ?>)</h3>
+									<h3 class="um-account-heading">
+										<?php esc_html_e( 'Your Bookings', 'wp-travel' ); ?> (<?php echo esc_html( $the_query->found_posts ); ?>)
+									</h3>
 									<div class="table-wrp">
 										<?php
 										/**
@@ -482,6 +502,8 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 			</div>
 			<?php
 		}
+
+		?></div><?php
 
 		return ob_get_clean();
 	}
