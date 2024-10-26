@@ -27,7 +27,7 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 		$detail_link  = home_url( $wp->request ) . '#bookings';
 		$back_link    = $detail_link;
 		$request_data = WP_Travel::get_sanitize_request();
-    echo  <<<HTML
+    echo  "{html:`";
 		?>
 		
 				<div class="um-account-nav uimob340-show uimob500-show">
@@ -39,7 +39,6 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 				</div>
 				<div class="um-account-tab um-account-tab-delete" data-tab="delete" style="display: none;">
 		<?php
-		HTML;
 		
 		if ( $request_data ) { // @phpcs:ignore
 			wptravel_print_notices();
@@ -503,11 +502,10 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 				<?php endif; ?>
 			</div>
 			<?php
-			echo  <<<HTML
+			echo  "`}";
 		}
 
 		?></div><?php
-		HTML;
 
 		return ob_get_clean();
 	}
