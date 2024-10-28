@@ -27,6 +27,7 @@ function insert_js_by_url_name($file_name, $path_contains) {
 
     // Define an anonymous function with a unique key in the add_action hook
     add_action('wp_enqueue_scripts', function() use ($file_name, $path_contains) {
+        error_log('33333' . '__' . $file_name. '__' . $path_contains);
         if (strpos($_SERVER['REQUEST_URI'], $path_contains) !== false) {
             error_log('222' . '__' . $file_name);
             wp_enqueue_script(
