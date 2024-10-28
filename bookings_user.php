@@ -21,7 +21,7 @@ if ( ! function_exists( 'custome_wptravel_account_tab_content' ) ) {
 	function custome_wptravel_account_tab_content( $args ) {
 		ob_start();
 
-		$bookings = $args['bookings'];
+		$bookings = $args['bookings'] || [];
 		$bookings = is_array( $bookings ) ? array_unique( $bookings ) : $bookings;
 		global $wp;
 		$detail_link  = home_url( $wp->request ) . '#bookings';
