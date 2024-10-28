@@ -23,13 +23,9 @@ require_once 'transfer_user_data.php';
 
 
 function insert_js_by_url_name($file_name, $path_contains) {
-    error_log(1111);
-
     // Define an anonymous function with a unique key in the add_action hook
     add_action('wp_enqueue_scripts', function() use ($file_name, $path_contains) {
-        error_log('33333' . '__' . $file_name. '__' . $path_contains . '___' . $_SERVER['REQUEST_URI']);
         if (strpos($_SERVER['REQUEST_URI'], $path_contains) !== false) {
-            error_log('222' . '__' . $file_name);
             wp_enqueue_script(
                 $file_name . '_script',
                 plugins_url('js/' . $file_name . '.js', __FILE__),
@@ -40,3 +36,6 @@ function insert_js_by_url_name($file_name, $path_contains) {
 }
 
 insert_js_by_url_name('form_change_upload_file', '/book_');
+insert_js_by_url_name('form_load_wpuserdata', '/book_');
+insert_js_by_url_name('form_add_repeater', '/book_');
+insert_js_by_url_name('form_show_sent_modal', '/booking_');
