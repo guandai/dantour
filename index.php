@@ -25,13 +25,13 @@ require_once 'transfer_user_data.php';
 
 function insert_js_by_url_name ($file_name, $path_contains) {
     error_log(1111);
-    $function_name = $file_name . '_fn_' . md5('specific_url');
+    $function_name = $file_name . '_' . md5('specific_url');
     error_log($function_name);
     ${$function_name} = function() {
         if (strpos($_SERVER['REQUEST_URI'], $path_contains) !== false) {
-            error_log(222);
+            error_log(222. '__'.$file_name);
             wp_enqueue_script(
-                $file_name,
+                $function_name,
                 plugins_url('js/' . $file_name . '.js', __FILE__),
                 array('jquery'), '1.0', true
             );
