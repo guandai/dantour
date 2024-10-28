@@ -29,7 +29,7 @@ function insert_js_by_url_name ($file_name, $path_contains) {
     error_log($function_name);
     ${$function_name} = function() {
         if (strpos($_SERVER['REQUEST_URI'], $path_contains) !== false) {
-            error_log(222. '__'.$file_name);
+            error_log('222' . '__' . $file_name);
             wp_enqueue_script(
                 $function_name,
                 plugins_url('js/' . $file_name . '.js', __FILE__),
