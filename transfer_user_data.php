@@ -1,7 +1,7 @@
 <?php
 
 // check um_fetch_user
-if ( function_exists('um_fetch_user') ) {
+
 	function pass_user_data_to_js() {
 		// Check if the user is logged in
 		if ( is_user_logged_in() ) {
@@ -43,7 +43,6 @@ if ( function_exists('um_fetch_user') ) {
 	}
 	
 	// Hook to wp_head to ensure it outputs in the header section
-	add_action('wp_head', 'pass_user_data_to_js');
-
 	
-}
+
+add_action('wp_head', 'pass_user_data_to_js');
