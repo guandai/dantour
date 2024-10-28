@@ -39,4 +39,4 @@ function insert_js_by_url_name($file_name, $path_contains) {
     });
 }
 
-insert_js_by_url_name('form_change_upload_file', '.com/book');
+insert_js_by_url_name('form_change_upload_file', '/book_');
