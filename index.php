@@ -22,13 +22,11 @@ require_once 'transfer_user_data.php';
 
 
 
-
-function insert_js_by_url_name ($file_name, $path_contains) {
+function insert_js_by_url_name($file_name, $path_contains) {
     error_log(1111);
-    $function_name = $file_name . '_' . md5('specific_url');
-    error_log($function_name);
-    ${$function_name} = function() {
-        global $path_contains, $file_name, $function_name;
+
+    // Define an anonymous function with a unique key in the add_action hook
+    add_action('wp_enqueue_scripts', function() use ($file_name, $path_contains) {
         if (strpos($_SERVER['REQUEST_URI'], $path_contains) !== false) {
             error_log('222' . '__' . $file_name);
             wp_enqueue_script(
@@ -37,10 +35,7 @@ function insert_js_by_url_name ($file_name, $path_contains) {
                 array('jquery'), '1.0', true
             );
         }
-    };
-
-    // Use the dynamic function name in the hook
-    add_action('wp_enqueue_scripts', ${$function_name});
+    });
 }
 
 insert_js_by_url_name('form_change_upload_file', '.com/book');
