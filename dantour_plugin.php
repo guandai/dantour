@@ -17,3 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once 'download_core.php';
 require_once 'bookings_user.php';
+require_once 'transfer_user_data.php';
+// require_once 'redirect_trace.php';
+
+
